@@ -1,0 +1,851 @@
+﻿========================================
+  FlowLang Manual Lexical Analyzer
+========================================
+Scanning file: ../tests/test1.lang
+
+========================================
+          TOKEN LIST
+========================================
+<SINGLE_LINE_COMMENT, "## Test 1: All Valid Tokens\r", Line: 1, Col: 1>
+<SINGLE_LINE_COMMENT, "## This file tests every token type recognized by FlowLang\r", Line: 2, Col: 1>
+<SINGLE_LINE_COMMENT, "## Keywords\r", Line: 4, Col: 1>
+<KEYWORD, "start", Line: 5, Col: 1>
+<KEYWORD, "finish", Line: 6, Col: 1>
+<KEYWORD, "loop", Line: 7, Col: 1>
+<KEYWORD, "condition", Line: 8, Col: 1>
+<KEYWORD, "declare", Line: 9, Col: 1>
+<KEYWORD, "output", Line: 10, Col: 1>
+<KEYWORD, "input", Line: 11, Col: 1>
+<KEYWORD, "function", Line: 12, Col: 1>
+<KEYWORD, "return", Line: 13, Col: 1>
+<KEYWORD, "break", Line: 14, Col: 1>
+<KEYWORD, "continue", Line: 15, Col: 1>
+<KEYWORD, "else", Line: 16, Col: 1>
+<SINGLE_LINE_COMMENT, "## Identifiers\r", Line: 18, Col: 1>
+<IDENTIFIER, "Count", Line: 19, Col: 1>
+<IDENTIFIER, "Variable_name", Line: 20, Col: 1>
+<IDENTIFIER, "X", Line: 21, Col: 1>
+<IDENTIFIER, "Total_sum_2024", Line: 22, Col: 1>
+<IDENTIFIER, "My_var", Line: 23, Col: 1>
+<SINGLE_LINE_COMMENT, "## Integer Literals\r", Line: 25, Col: 1>
+<INTEGER_LITERAL, "42", Line: 26, Col: 1>
+<INTEGER_LITERAL, "0", Line: 27, Col: 1>
+<INTEGER_LITERAL, "100", Line: 28, Col: 1>
+<INTEGER_LITERAL, "999", Line: 29, Col: 1>
+<SINGLE_LINE_COMMENT, "## Floating-Point Literals\r", Line: 31, Col: 1>
+<FLOAT_LITERAL, "3.14", Line: 32, Col: 1>
+<FLOAT_LITERAL, "2.5", Line: 33, Col: 1>
+<FLOAT_LITERAL, "0.123456", Line: 34, Col: 1>
+<FLOAT_LITERAL, "1.5e10", Line: 35, Col: 1>
+<FLOAT_LITERAL, "2.0E-3", Line: 36, Col: 1>
+<FLOAT_LITERAL, "100.0e+5", Line: 37, Col: 1>
+<SINGLE_LINE_COMMENT, "## Boolean Literals\r", Line: 39, Col: 1>
+<BOOLEAN_LITERAL, "true", Line: 40, Col: 1>
+<BOOLEAN_LITERAL, "false", Line: 41, Col: 1>
+<SINGLE_LINE_COMMENT, "## String Literals\r", Line: 43, Col: 1>
+<STRING_LITERAL, ""Hello, World!"", Line: 44, Col: 1>
+<STRING_LITERAL, ""FlowLang is great"", Line: 45, Col: 1>
+<STRING_LITERAL, """", Line: 46, Col: 1>
+<SINGLE_LINE_COMMENT, "## Character Literals\r", Line: 48, Col: 1>
+<CHAR_LITERAL, "'A'", Line: 49, Col: 1>
+<CHAR_LITERAL, "'z'", Line: 50, Col: 1>
+<CHAR_LITERAL, "'0'", Line: 51, Col: 1>
+<SINGLE_LINE_COMMENT, "## Arithmetic Operators\r", Line: 53, Col: 1>
+<ARITHMETIC_OP, "+", Line: 54, Col: 1>
+<ARITHMETIC_OP, "-", Line: 54, Col: 3>
+<ARITHMETIC_OP, "*", Line: 54, Col: 5>
+<ARITHMETIC_OP, "/", Line: 54, Col: 7>
+<ARITHMETIC_OP, "%", Line: 54, Col: 9>
+<ARITHMETIC_OP, "**", Line: 54, Col: 11>
+<SINGLE_LINE_COMMENT, "## Relational Operators\r", Line: 56, Col: 1>
+<RELATIONAL_OP, "==", Line: 57, Col: 1>
+<RELATIONAL_OP, "!=", Line: 57, Col: 4>
+<RELATIONAL_OP, "<=", Line: 57, Col: 7>
+<RELATIONAL_OP, ">=", Line: 57, Col: 10>
+<RELATIONAL_OP, "<", Line: 57, Col: 13>
+<RELATIONAL_OP, ">", Line: 57, Col: 15>
+<SINGLE_LINE_COMMENT, "## Logical Operators\r", Line: 59, Col: 1>
+<LOGICAL_OP, "&&", Line: 60, Col: 1>
+<LOGICAL_OP, "||", Line: 60, Col: 4>
+<LOGICAL_OP, "!", Line: 60, Col: 7>
+<SINGLE_LINE_COMMENT, "## Assignment Operators\r", Line: 62, Col: 1>
+<ASSIGNMENT_OP, "=", Line: 63, Col: 1>
+<ASSIGNMENT_OP, "+=", Line: 63, Col: 3>
+<ASSIGNMENT_OP, "-=", Line: 63, Col: 6>
+<ASSIGNMENT_OP, "*=", Line: 63, Col: 9>
+<ASSIGNMENT_OP, "/=", Line: 63, Col: 12>
+<SINGLE_LINE_COMMENT, "## Increment/Decrement Operators\r", Line: 65, Col: 1>
+<INC_DEC_OP, "++", Line: 66, Col: 1>
+<INC_DEC_OP, "--", Line: 66, Col: 4>
+<SINGLE_LINE_COMMENT, "## Punctuators\r", Line: 68, Col: 1>
+<PUNCTUATOR, "(", Line: 69, Col: 1>
+<PUNCTUATOR, ")", Line: 69, Col: 3>
+<PUNCTUATOR, "{", Line: 69, Col: 5>
+<PUNCTUATOR, "}", Line: 69, Col: 7>
+<PUNCTUATOR, "[", Line: 69, Col: 9>
+<PUNCTUATOR, "]", Line: 69, Col: 11>
+<PUNCTUATOR, ",", Line: 69, Col: 13>
+<PUNCTUATOR, ";", Line: 69, Col: 15>
+<PUNCTUATOR, ":", Line: 69, Col: 17>
+<SINGLE_LINE_COMMENT, "## Sample Expression\r", Line: 71, Col: 1>
+<KEYWORD, "declare", Line: 72, Col: 1>
+<IDENTIFIER, "Count", Line: 72, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 72, Col: 15>
+<INTEGER_LITERAL, "10", Line: 72, Col: 17>
+<PUNCTUATOR, ";", Line: 72, Col: 19>
+<KEYWORD, "loop", Line: 73, Col: 1>
+<PUNCTUATOR, "(", Line: 73, Col: 6>
+<IDENTIFIER, "Count", Line: 73, Col: 7>
+<RELATIONAL_OP, ">", Line: 73, Col: 13>
+<INTEGER_LITERAL, "0", Line: 73, Col: 15>
+<PUNCTUATOR, ")", Line: 73, Col: 16>
+<PUNCTUATOR, "{", Line: 73, Col: 18>
+<KEYWORD, "output", Line: 74, Col: 5>
+<PUNCTUATOR, "(", Line: 74, Col: 11>
+<STRING_LITERAL, ""Value: "", Line: 74, Col: 12>
+<PUNCTUATOR, ")", Line: 74, Col: 21>
+<PUNCTUATOR, ";", Line: 74, Col: 22>
+<IDENTIFIER, "Count", Line: 75, Col: 5>
+<ASSIGNMENT_OP, "-=", Line: 75, Col: 11>
+<INTEGER_LITERAL, "1", Line: 75, Col: 14>
+<PUNCTUATOR, ";", Line: 75, Col: 15>
+<PUNCTUATOR, "}", Line: 76, Col: 1>
+<EOF, "", Line: 77, Col: 1>
+
+========================================
+          SCANNER STATISTICS
+========================================
+Total tokens:      105
+Lines processed:   77
+Comments removed:  16
+
+Token counts by type:
+----------------------------------------
+  KEYWORD                   15
+  IDENTIFIER                8
+  INTEGER_LITERAL           7
+  FLOAT_LITERAL             6
+  STRING_LITERAL            4
+  CHAR_LITERAL              3
+  BOOLEAN_LITERAL           2
+  ARITHMETIC_OP             6
+  RELATIONAL_OP             7
+  LOGICAL_OP                3
+  ASSIGNMENT_OP             7
+  INC_DEC_OP                2
+  PUNCTUATOR                18
+  SINGLE_LINE_COMMENT       16
+  EOF                       1
+========================================
+
+========================================
+          SYMBOL TABLE
+========================================
+Name                      Type            First Occur.    Frequency
+----------------------------------------
+Count                     IDENTIFIER      19:1            4
+Variable_name             IDENTIFIER      20:1            1
+X                         IDENTIFIER      21:1            1
+Total_sum_2024            IDENTIFIER      22:1            1
+My_var                    IDENTIFIER      23:1            1
+========================================
+Total unique identifiers: 5
+
+========================================
+          LEXICAL ERRORS
+========================================
+No lexical errors found.
+========================================
+---
+TEST 2 RESULTS
+---
+========================================
+  FlowLang Manual Lexical Analyzer
+========================================
+Scanning file: ../tests/test2.lang
+
+========================================
+          TOKEN LIST
+========================================
+<SINGLE_LINE_COMMENT, "## Test 2: Complex Expressions\r", Line: 1, Col: 1>
+<SINGLE_LINE_COMMENT, "## Tests operator precedence, nested expressions, and complex programs\r", Line: 2, Col: 1>
+<KEYWORD, "start", Line: 4, Col: 1>
+<SINGLE_LINE_COMMENT, "## Variable declarations\r", Line: 6, Col: 1>
+<KEYWORD, "declare", Line: 7, Col: 1>
+<IDENTIFIER, "Result", Line: 7, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 7, Col: 16>
+<INTEGER_LITERAL, "0", Line: 7, Col: 18>
+<PUNCTUATOR, ";", Line: 7, Col: 19>
+<KEYWORD, "declare", Line: 8, Col: 1>
+<IDENTIFIER, "X", Line: 8, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 8, Col: 11>
+<INTEGER_LITERAL, "10", Line: 8, Col: 13>
+<PUNCTUATOR, ";", Line: 8, Col: 15>
+<KEYWORD, "declare", Line: 9, Col: 1>
+<IDENTIFIER, "Y", Line: 9, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 9, Col: 11>
+<INTEGER_LITERAL, "20", Line: 9, Col: 13>
+<PUNCTUATOR, ";", Line: 9, Col: 15>
+<KEYWORD, "declare", Line: 10, Col: 1>
+<IDENTIFIER, "Z", Line: 10, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 10, Col: 11>
+<INTEGER_LITERAL, "5", Line: 10, Col: 13>
+<PUNCTUATOR, ";", Line: 10, Col: 14>
+<SINGLE_LINE_COMMENT, "## Complex arithmetic expressions\r", Line: 12, Col: 1>
+<IDENTIFIER, "Result", Line: 13, Col: 1>
+<ASSIGNMENT_OP, "=", Line: 13, Col: 8>
+<IDENTIFIER, "X", Line: 13, Col: 10>
+<ARITHMETIC_OP, "+", Line: 13, Col: 12>
+<IDENTIFIER, "Y", Line: 13, Col: 14>
+<ARITHMETIC_OP, "*", Line: 13, Col: 16>
+<IDENTIFIER, "Z", Line: 13, Col: 18>
+<ARITHMETIC_OP, "-", Line: 13, Col: 20>
+<IDENTIFIER, "X", Line: 13, Col: 22>
+<ARITHMETIC_OP, "/", Line: 13, Col: 24>
+<IDENTIFIER, "Y", Line: 13, Col: 26>
+<ARITHMETIC_OP, "%", Line: 13, Col: 28>
+<IDENTIFIER, "Z", Line: 13, Col: 30>
+<PUNCTUATOR, ";", Line: 13, Col: 31>
+<IDENTIFIER, "Result", Line: 14, Col: 1>
+<ASSIGNMENT_OP, "=", Line: 14, Col: 8>
+<PUNCTUATOR, "(", Line: 14, Col: 10>
+<IDENTIFIER, "X", Line: 14, Col: 11>
+<ARITHMETIC_OP, "+", Line: 14, Col: 13>
+<IDENTIFIER, "Y", Line: 14, Col: 15>
+<PUNCTUATOR, ")", Line: 14, Col: 16>
+<ARITHMETIC_OP, "*", Line: 14, Col: 18>
+<PUNCTUATOR, "(", Line: 14, Col: 20>
+<IDENTIFIER, "Z", Line: 14, Col: 21>
+<ARITHMETIC_OP, "-", Line: 14, Col: 23>
+<INTEGER_LITERAL, "2", Line: 14, Col: 25>
+<PUNCTUATOR, ")", Line: 14, Col: 26>
+<PUNCTUATOR, ";", Line: 14, Col: 27>
+<IDENTIFIER, "Result", Line: 15, Col: 1>
+<ASSIGNMENT_OP, "=", Line: 15, Col: 8>
+<IDENTIFIER, "X", Line: 15, Col: 10>
+<ARITHMETIC_OP, "**", Line: 15, Col: 12>
+<INTEGER_LITERAL, "2", Line: 15, Col: 15>
+<ARITHMETIC_OP, "+", Line: 15, Col: 17>
+<IDENTIFIER, "Y", Line: 15, Col: 19>
+<ARITHMETIC_OP, "**", Line: 15, Col: 21>
+<INTEGER_LITERAL, "3", Line: 15, Col: 24>
+<PUNCTUATOR, ";", Line: 15, Col: 25>
+<SINGLE_LINE_COMMENT, "## Assignment operators in expressions\r", Line: 17, Col: 1>
+<IDENTIFIER, "X", Line: 18, Col: 1>
+<ASSIGNMENT_OP, "+=", Line: 18, Col: 3>
+<IDENTIFIER, "Y", Line: 18, Col: 6>
+<ARITHMETIC_OP, "*", Line: 18, Col: 8>
+<IDENTIFIER, "Z", Line: 18, Col: 10>
+<PUNCTUATOR, ";", Line: 18, Col: 11>
+<IDENTIFIER, "Y", Line: 19, Col: 1>
+<ASSIGNMENT_OP, "-=", Line: 19, Col: 3>
+<IDENTIFIER, "X", Line: 19, Col: 6>
+<ARITHMETIC_OP, "/", Line: 19, Col: 8>
+<INTEGER_LITERAL, "2", Line: 19, Col: 10>
+<PUNCTUATOR, ";", Line: 19, Col: 11>
+<IDENTIFIER, "Z", Line: 20, Col: 1>
+<ASSIGNMENT_OP, "*=", Line: 20, Col: 3>
+<IDENTIFIER, "X", Line: 20, Col: 6>
+<ARITHMETIC_OP, "+", Line: 20, Col: 8>
+<INTEGER_LITERAL, "1", Line: 20, Col: 10>
+<PUNCTUATOR, ";", Line: 20, Col: 11>
+<IDENTIFIER, "Result", Line: 21, Col: 1>
+<ASSIGNMENT_OP, "/=", Line: 21, Col: 8>
+<IDENTIFIER, "Z", Line: 21, Col: 11>
+<PUNCTUATOR, ";", Line: 21, Col: 12>
+<SINGLE_LINE_COMMENT, "## Increment and decrement\r", Line: 23, Col: 1>
+<IDENTIFIER, "X", Line: 24, Col: 1>
+<INC_DEC_OP, "++", Line: 24, Col: 2>
+<PUNCTUATOR, ";", Line: 24, Col: 4>
+<IDENTIFIER, "Y", Line: 25, Col: 1>
+<INC_DEC_OP, "--", Line: 25, Col: 2>
+<PUNCTUATOR, ";", Line: 25, Col: 4>
+<IDENTIFIER, "X", Line: 26, Col: 1>
+<INC_DEC_OP, "++", Line: 26, Col: 2>
+<PUNCTUATOR, ";", Line: 26, Col: 4>
+<IDENTIFIER, "Y", Line: 27, Col: 1>
+<INC_DEC_OP, "--", Line: 27, Col: 2>
+<PUNCTUATOR, ";", Line: 27, Col: 4>
+<SINGLE_LINE_COMMENT, "## Relational and logical expressions\r", Line: 29, Col: 1>
+<KEYWORD, "condition", Line: 30, Col: 1>
+<PUNCTUATOR, "(", Line: 30, Col: 11>
+<IDENTIFIER, "X", Line: 30, Col: 12>
+<RELATIONAL_OP, ">", Line: 30, Col: 14>
+<IDENTIFIER, "Y", Line: 30, Col: 16>
+<LOGICAL_OP, "&&", Line: 30, Col: 18>
+<IDENTIFIER, "Z", Line: 30, Col: 21>
+<RELATIONAL_OP, "<=", Line: 30, Col: 23>
+<INTEGER_LITERAL, "10", Line: 30, Col: 26>
+<PUNCTUATOR, ")", Line: 30, Col: 28>
+<PUNCTUATOR, "{", Line: 30, Col: 30>
+<KEYWORD, "output", Line: 31, Col: 5>
+<PUNCTUATOR, "(", Line: 31, Col: 11>
+<STRING_LITERAL, ""Condition 1 met"", Line: 31, Col: 12>
+<PUNCTUATOR, ")", Line: 31, Col: 29>
+<PUNCTUATOR, ";", Line: 31, Col: 30>
+<PUNCTUATOR, "}", Line: 32, Col: 1>
+<KEYWORD, "condition", Line: 34, Col: 1>
+<PUNCTUATOR, "(", Line: 34, Col: 11>
+<IDENTIFIER, "X", Line: 34, Col: 12>
+<RELATIONAL_OP, "==", Line: 34, Col: 14>
+<IDENTIFIER, "Y", Line: 34, Col: 17>
+<LOGICAL_OP, "||", Line: 34, Col: 19>
+<IDENTIFIER, "Z", Line: 34, Col: 22>
+<RELATIONAL_OP, "!=", Line: 34, Col: 24>
+<INTEGER_LITERAL, "0", Line: 34, Col: 27>
+<PUNCTUATOR, ")", Line: 34, Col: 28>
+<PUNCTUATOR, "{", Line: 34, Col: 30>
+<KEYWORD, "output", Line: 35, Col: 5>
+<PUNCTUATOR, "(", Line: 35, Col: 11>
+<STRING_LITERAL, ""Condition 2 met"", Line: 35, Col: 12>
+<PUNCTUATOR, ")", Line: 35, Col: 29>
+<PUNCTUATOR, ";", Line: 35, Col: 30>
+<PUNCTUATOR, "}", Line: 36, Col: 1>
+<KEYWORD, "else", Line: 36, Col: 3>
+<PUNCTUATOR, "{", Line: 36, Col: 8>
+<KEYWORD, "output", Line: 37, Col: 5>
+<PUNCTUATOR, "(", Line: 37, Col: 11>
+<STRING_LITERAL, ""Condition 2 not met"", Line: 37, Col: 12>
+<PUNCTUATOR, ")", Line: 37, Col: 33>
+<PUNCTUATOR, ";", Line: 37, Col: 34>
+<PUNCTUATOR, "}", Line: 38, Col: 1>
+<KEYWORD, "condition", Line: 40, Col: 1>
+<PUNCTUATOR, "(", Line: 40, Col: 11>
+<LOGICAL_OP, "!", Line: 40, Col: 12>
+<PUNCTUATOR, "(", Line: 40, Col: 13>
+<IDENTIFIER, "X", Line: 40, Col: 14>
+<RELATIONAL_OP, "<", Line: 40, Col: 16>
+<INTEGER_LITERAL, "0", Line: 40, Col: 18>
+<PUNCTUATOR, ")", Line: 40, Col: 19>
+<LOGICAL_OP, "&&", Line: 40, Col: 21>
+<PUNCTUATOR, "(", Line: 40, Col: 24>
+<IDENTIFIER, "Y", Line: 40, Col: 25>
+<RELATIONAL_OP, ">=", Line: 40, Col: 27>
+<IDENTIFIER, "Z", Line: 40, Col: 30>
+<PUNCTUATOR, ")", Line: 40, Col: 31>
+<PUNCTUATOR, ")", Line: 40, Col: 32>
+<PUNCTUATOR, "{", Line: 40, Col: 34>
+<IDENTIFIER, "Result", Line: 41, Col: 5>
+<ASSIGNMENT_OP, "=", Line: 41, Col: 12>
+<IDENTIFIER, "X", Line: 41, Col: 14>
+<ARITHMETIC_OP, "*", Line: 41, Col: 16>
+<IDENTIFIER, "Y", Line: 41, Col: 18>
+<ARITHMETIC_OP, "+", Line: 41, Col: 20>
+<IDENTIFIER, "Z", Line: 41, Col: 22>
+<PUNCTUATOR, ";", Line: 41, Col: 23>
+<PUNCTUATOR, "}", Line: 42, Col: 1>
+<SINGLE_LINE_COMMENT, "## Nested loops\r", Line: 44, Col: 1>
+<KEYWORD, "loop", Line: 45, Col: 1>
+<PUNCTUATOR, "(", Line: 45, Col: 6>
+<IDENTIFIER, "X", Line: 45, Col: 7>
+<RELATIONAL_OP, ">", Line: 45, Col: 9>
+<INTEGER_LITERAL, "0", Line: 45, Col: 11>
+<PUNCTUATOR, ")", Line: 45, Col: 12>
+<PUNCTUATOR, "{", Line: 45, Col: 14>
+<KEYWORD, "loop", Line: 46, Col: 5>
+<PUNCTUATOR, "(", Line: 46, Col: 10>
+<IDENTIFIER, "Y", Line: 46, Col: 11>
+<RELATIONAL_OP, ">", Line: 46, Col: 13>
+<INTEGER_LITERAL, "0", Line: 46, Col: 15>
+<PUNCTUATOR, ")", Line: 46, Col: 16>
+<PUNCTUATOR, "{", Line: 46, Col: 18>
+<KEYWORD, "condition", Line: 47, Col: 9>
+<PUNCTUATOR, "(", Line: 47, Col: 19>
+<IDENTIFIER, "X", Line: 47, Col: 20>
+<RELATIONAL_OP, "==", Line: 47, Col: 22>
+<IDENTIFIER, "Y", Line: 47, Col: 25>
+<PUNCTUATOR, ")", Line: 47, Col: 26>
+<PUNCTUATOR, "{", Line: 47, Col: 28>
+<KEYWORD, "break", Line: 48, Col: 13>
+<PUNCTUATOR, ";", Line: 48, Col: 18>
+<PUNCTUATOR, "}", Line: 49, Col: 9>
+<IDENTIFIER, "Y", Line: 50, Col: 9>
+<INC_DEC_OP, "--", Line: 50, Col: 10>
+<PUNCTUATOR, ";", Line: 50, Col: 12>
+<PUNCTUATOR, "}", Line: 51, Col: 5>
+<IDENTIFIER, "X", Line: 52, Col: 5>
+<INC_DEC_OP, "--", Line: 52, Col: 6>
+<PUNCTUATOR, ";", Line: 52, Col: 8>
+<PUNCTUATOR, "}", Line: 53, Col: 1>
+<SINGLE_LINE_COMMENT, "## Function definition and call\r", Line: 55, Col: 1>
+<KEYWORD, "function", Line: 56, Col: 1>
+<IDENTIFIER, "Calculate", Line: 56, Col: 10>
+<PUNCTUATOR, "(", Line: 56, Col: 19>
+<IDENTIFIER, "A", Line: 56, Col: 20>
+<PUNCTUATOR, ",", Line: 56, Col: 21>
+<IDENTIFIER, "B", Line: 56, Col: 23>
+<PUNCTUATOR, ",", Line: 56, Col: 24>
+<IDENTIFIER, "C", Line: 56, Col: 26>
+<PUNCTUATOR, ")", Line: 56, Col: 27>
+<PUNCTUATOR, "{", Line: 56, Col: 29>
+<KEYWORD, "declare", Line: 57, Col: 5>
+<IDENTIFIER, "Temp", Line: 57, Col: 13>
+<ASSIGNMENT_OP, "=", Line: 57, Col: 18>
+<IDENTIFIER, "A", Line: 57, Col: 20>
+<ARITHMETIC_OP, "*", Line: 57, Col: 22>
+<IDENTIFIER, "B", Line: 57, Col: 24>
+<PUNCTUATOR, ";", Line: 57, Col: 25>
+<IDENTIFIER, "Temp", Line: 58, Col: 5>
+<ASSIGNMENT_OP, "+=", Line: 58, Col: 10>
+<IDENTIFIER, "C", Line: 58, Col: 13>
+<ARITHMETIC_OP, "**", Line: 58, Col: 15>
+<INTEGER_LITERAL, "2", Line: 58, Col: 18>
+<PUNCTUATOR, ";", Line: 58, Col: 19>
+<KEYWORD, "return", Line: 59, Col: 5>
+<IDENTIFIER, "Temp", Line: 59, Col: 12>
+<PUNCTUATOR, ";", Line: 59, Col: 16>
+<PUNCTUATOR, "}", Line: 60, Col: 1>
+<IDENTIFIER, "Result", Line: 62, Col: 1>
+<ASSIGNMENT_OP, "=", Line: 62, Col: 8>
+<IDENTIFIER, "Calculate", Line: 62, Col: 10>
+<PUNCTUATOR, "(", Line: 62, Col: 19>
+<IDENTIFIER, "X", Line: 62, Col: 20>
+<PUNCTUATOR, ",", Line: 62, Col: 21>
+<IDENTIFIER, "Y", Line: 62, Col: 23>
+<PUNCTUATOR, ",", Line: 62, Col: 24>
+<IDENTIFIER, "Z", Line: 62, Col: 26>
+<PUNCTUATOR, ")", Line: 62, Col: 27>
+<PUNCTUATOR, ";", Line: 62, Col: 28>
+<KEYWORD, "output", Line: 63, Col: 1>
+<PUNCTUATOR, "(", Line: 63, Col: 7>
+<IDENTIFIER, "Result", Line: 63, Col: 8>
+<PUNCTUATOR, ")", Line: 63, Col: 14>
+<PUNCTUATOR, ";", Line: 63, Col: 15>
+<SINGLE_LINE_COMMENT, "## Complex boolean logic\r", Line: 65, Col: 1>
+<KEYWORD, "declare", Line: 66, Col: 1>
+<IDENTIFIER, "Flag1", Line: 66, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 66, Col: 15>
+<BOOLEAN_LITERAL, "true", Line: 66, Col: 17>
+<PUNCTUATOR, ";", Line: 66, Col: 21>
+<KEYWORD, "declare", Line: 67, Col: 1>
+<IDENTIFIER, "Flag2", Line: 67, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 67, Col: 15>
+<BOOLEAN_LITERAL, "false", Line: 67, Col: 17>
+<PUNCTUATOR, ";", Line: 67, Col: 22>
+<KEYWORD, "condition", Line: 69, Col: 1>
+<PUNCTUATOR, "(", Line: 69, Col: 11>
+<IDENTIFIER, "Flag1", Line: 69, Col: 12>
+<LOGICAL_OP, "&&", Line: 69, Col: 18>
+<LOGICAL_OP, "!", Line: 69, Col: 21>
+<IDENTIFIER, "Flag2", Line: 69, Col: 22>
+<LOGICAL_OP, "||", Line: 69, Col: 28>
+<IDENTIFIER, "X", Line: 69, Col: 31>
+<RELATIONAL_OP, ">", Line: 69, Col: 33>
+<INTEGER_LITERAL, "0", Line: 69, Col: 35>
+<PUNCTUATOR, ")", Line: 69, Col: 36>
+<PUNCTUATOR, "{", Line: 69, Col: 38>
+<KEYWORD, "output", Line: 70, Col: 5>
+<PUNCTUATOR, "(", Line: 70, Col: 11>
+<STRING_LITERAL, ""Complex boolean passed"", Line: 70, Col: 12>
+<PUNCTUATOR, ")", Line: 70, Col: 36>
+<PUNCTUATOR, ";", Line: 70, Col: 37>
+<PUNCTUATOR, "}", Line: 71, Col: 1>
+<KEYWORD, "finish", Line: 73, Col: 1>
+<EOF, "", Line: 74, Col: 1>
+
+========================================
+          SCANNER STATISTICS
+========================================
+Total tokens:      275
+Lines processed:   74
+Comments removed:  10
+
+Token counts by type:
+----------------------------------------
+  KEYWORD                   25
+  IDENTIFIER                71
+  INTEGER_LITERAL           16
+  STRING_LITERAL            4
+  BOOLEAN_LITERAL           2
+  ARITHMETIC_OP             18
+  RELATIONAL_OP             10
+  LOGICAL_OP                7
+  ASSIGNMENT_OP             17
+  INC_DEC_OP                6
+  PUNCTUATOR                88
+  SINGLE_LINE_COMMENT       10
+  EOF                       1
+========================================
+
+========================================
+          SYMBOL TABLE
+========================================
+Name                      Type            First Occur.    Frequency
+----------------------------------------
+Result                    IDENTIFIER      7:9             8
+X                         IDENTIFIER      8:9             19
+Y                         IDENTIFIER      9:9             17
+Z                         IDENTIFIER      10:9            12
+Calculate                 IDENTIFIER      56:10           2
+A                         IDENTIFIER      56:20           2
+B                         IDENTIFIER      56:23           2
+C                         IDENTIFIER      56:26           2
+Temp                      IDENTIFIER      57:13           3
+Flag1                     IDENTIFIER      66:9            2
+Flag2                     IDENTIFIER      67:9            2
+========================================
+Total unique identifiers: 11
+
+========================================
+          LEXICAL ERRORS
+========================================
+No lexical errors found.
+========================================
+---
+TEST 3 RESULTS
+---
+========================================
+  FlowLang Manual Lexical Analyzer
+========================================
+Scanning file: ../tests/test3.lang
+
+========================================
+          TOKEN LIST
+========================================
+<SINGLE_LINE_COMMENT, "## Test 3: String and Character Literals with Escape Sequences\r", Line: 1, Col: 1>
+<KEYWORD, "start", Line: 3, Col: 1>
+<SINGLE_LINE_COMMENT, "## Simple strings\r", Line: 5, Col: 1>
+<KEYWORD, "declare", Line: 6, Col: 1>
+<IDENTIFIER, "Greeting", Line: 6, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 6, Col: 18>
+<STRING_LITERAL, ""Hello"", Line: 6, Col: 20>
+<PUNCTUATOR, ";", Line: 6, Col: 27>
+<KEYWORD, "declare", Line: 7, Col: 1>
+<IDENTIFIER, "Empty", Line: 7, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 7, Col: 15>
+<STRING_LITERAL, """", Line: 7, Col: 17>
+<PUNCTUATOR, ";", Line: 7, Col: 19>
+<SINGLE_LINE_COMMENT, "## Strings with escape sequences\r", Line: 9, Col: 1>
+<KEYWORD, "declare", Line: 10, Col: 1>
+<IDENTIFIER, "Newline_str", Line: 10, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 10, Col: 21>
+<STRING_LITERAL, ""Line1\\nLine2"", Line: 10, Col: 23>
+<PUNCTUATOR, ";", Line: 10, Col: 37>
+<KEYWORD, "declare", Line: 11, Col: 1>
+<IDENTIFIER, "Tab_str", Line: 11, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 11, Col: 17>
+<STRING_LITERAL, ""Col1\\tCol2"", Line: 11, Col: 19>
+<PUNCTUATOR, ";", Line: 11, Col: 31>
+<KEYWORD, "declare", Line: 12, Col: 1>
+<IDENTIFIER, "Return_str", Line: 12, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 12, Col: 20>
+<STRING_LITERAL, ""Text\\rOverwrite"", Line: 12, Col: 22>
+<PUNCTUATOR, ";", Line: 12, Col: 39>
+<KEYWORD, "declare", Line: 13, Col: 1>
+<IDENTIFIER, "Quote_str", Line: 13, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 13, Col: 19>
+<STRING_LITERAL, ""She said \\"hello\\""", Line: 13, Col: 21>
+<PUNCTUATOR, ";", Line: 13, Col: 41>
+<KEYWORD, "declare", Line: 14, Col: 1>
+<IDENTIFIER, "Backslash_str", Line: 14, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 14, Col: 23>
+<STRING_LITERAL, ""C:\\\\Users\\\\file"", Line: 14, Col: 25>
+<PUNCTUATOR, ";", Line: 14, Col: 42>
+<SINGLE_LINE_COMMENT, "## Multiple escapes in one string\r", Line: 16, Col: 1>
+<KEYWORD, "declare", Line: 17, Col: 1>
+<IDENTIFIER, "Complex_str", Line: 17, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 17, Col: 21>
+<STRING_LITERAL, ""Path:\\tC:\\\\dir\\\\file\\nDone\\"!\\""", Line: 17, Col: 23>
+<PUNCTUATOR, ";", Line: 17, Col: 56>
+<SINGLE_LINE_COMMENT, "## Character literals\r", Line: 19, Col: 1>
+<KEYWORD, "declare", Line: 20, Col: 1>
+<IDENTIFIER, "Ch1", Line: 20, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 20, Col: 13>
+<CHAR_LITERAL, "'A'", Line: 20, Col: 15>
+<PUNCTUATOR, ";", Line: 20, Col: 18>
+<KEYWORD, "declare", Line: 21, Col: 1>
+<IDENTIFIER, "Ch2", Line: 21, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 21, Col: 13>
+<CHAR_LITERAL, "'9'", Line: 21, Col: 15>
+<PUNCTUATOR, ";", Line: 21, Col: 18>
+<KEYWORD, "declare", Line: 22, Col: 1>
+<IDENTIFIER, "Ch3", Line: 22, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 22, Col: 13>
+<CHAR_LITERAL, "' '", Line: 22, Col: 15>
+<PUNCTUATOR, ";", Line: 22, Col: 18>
+<SINGLE_LINE_COMMENT, "## Characters with escape sequences\r", Line: 24, Col: 1>
+<KEYWORD, "declare", Line: 25, Col: 1>
+<IDENTIFIER, "Escaped_ch1", Line: 25, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 25, Col: 21>
+<CHAR_LITERAL, "'\\''", Line: 25, Col: 23>
+<PUNCTUATOR, ";", Line: 25, Col: 27>
+<KEYWORD, "declare", Line: 26, Col: 1>
+<IDENTIFIER, "Escaped_ch2", Line: 26, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 26, Col: 21>
+<CHAR_LITERAL, "'\\\\'", Line: 26, Col: 23>
+<PUNCTUATOR, ";", Line: 26, Col: 27>
+<KEYWORD, "declare", Line: 27, Col: 1>
+<IDENTIFIER, "Escaped_ch3", Line: 27, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 27, Col: 21>
+<CHAR_LITERAL, "'\\n'", Line: 27, Col: 23>
+<PUNCTUATOR, ";", Line: 27, Col: 27>
+<KEYWORD, "declare", Line: 28, Col: 1>
+<IDENTIFIER, "Escaped_ch4", Line: 28, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 28, Col: 21>
+<CHAR_LITERAL, "'\\t'", Line: 28, Col: 23>
+<PUNCTUATOR, ";", Line: 28, Col: 27>
+<KEYWORD, "declare", Line: 29, Col: 1>
+<IDENTIFIER, "Escaped_ch5", Line: 29, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 29, Col: 21>
+<CHAR_LITERAL, "'\\r'", Line: 29, Col: 23>
+<PUNCTUATOR, ";", Line: 29, Col: 27>
+<SINGLE_LINE_COMMENT, "## String used in output\r", Line: 31, Col: 1>
+<KEYWORD, "output", Line: 32, Col: 1>
+<PUNCTUATOR, "(", Line: 32, Col: 7>
+<STRING_LITERAL, ""Result:\\t"", Line: 32, Col: 8>
+<PUNCTUATOR, ")", Line: 32, Col: 19>
+<PUNCTUATOR, ";", Line: 32, Col: 20>
+<KEYWORD, "output", Line: 33, Col: 1>
+<PUNCTUATOR, "(", Line: 33, Col: 7>
+<STRING_LITERAL, ""Value = \\"42\\"\\n"", Line: 33, Col: 8>
+<PUNCTUATOR, ")", Line: 33, Col: 26>
+<PUNCTUATOR, ";", Line: 33, Col: 27>
+<KEYWORD, "output", Line: 34, Col: 1>
+<PUNCTUATOR, "(", Line: 34, Col: 7>
+<STRING_LITERAL, ""Path: C:\\\\Users\\\\test\\\\file.txt"", Line: 34, Col: 8>
+<PUNCTUATOR, ")", Line: 34, Col: 41>
+<PUNCTUATOR, ";", Line: 34, Col: 42>
+<KEYWORD, "finish", Line: 36, Col: 1>
+<EOF, "", Line: 37, Col: 1>
+
+========================================
+          SCANNER STATISTICS
+========================================
+Total tokens:      105
+Lines processed:   37
+Comments removed:  7
+
+Token counts by type:
+----------------------------------------
+  KEYWORD                   21
+  IDENTIFIER                16
+  STRING_LITERAL            11
+  CHAR_LITERAL              8
+  ASSIGNMENT_OP             16
+  PUNCTUATOR                25
+  SINGLE_LINE_COMMENT       7
+  EOF                       1
+========================================
+
+========================================
+          SYMBOL TABLE
+========================================
+Name                      Type            First Occur.    Frequency
+----------------------------------------
+Greeting                  IDENTIFIER      6:9             1
+Empty                     IDENTIFIER      7:9             1
+Newline_str               IDENTIFIER      10:9            1
+Tab_str                   IDENTIFIER      11:9            1
+Return_str                IDENTIFIER      12:9            1
+Quote_str                 IDENTIFIER      13:9            1
+Backslash_str             IDENTIFIER      14:9            1
+Complex_str               IDENTIFIER      17:9            1
+Ch1                       IDENTIFIER      20:9            1
+Ch2                       IDENTIFIER      21:9            1
+Ch3                       IDENTIFIER      22:9            1
+Escaped_ch1               IDENTIFIER      25:9            1
+Escaped_ch2               IDENTIFIER      26:9            1
+Escaped_ch3               IDENTIFIER      27:9            1
+Escaped_ch4               IDENTIFIER      28:9            1
+Escaped_ch5               IDENTIFIER      29:9            1
+========================================
+Total unique identifiers: 16
+
+========================================
+          LEXICAL ERRORS
+========================================
+No lexical errors found.
+========================================
+---
+TEST 4 RESULTS
+---
+========================================
+  FlowLang Manual Lexical Analyzer
+========================================
+Scanning file: ../tests/test4.lang
+
+========================================
+          TOKEN LIST
+========================================
+<SINGLE_LINE_COMMENT, "## Test 4: Lexical Errors\r", Line: 1, Col: 1>
+<SINGLE_LINE_COMMENT, "## This file contains intentional errors to test error handling\r", Line: 2, Col: 1>
+<KEYWORD, "start", Line: 4, Col: 1>
+<SINGLE_LINE_COMMENT, "## Invalid characters\r", Line: 6, Col: 1>
+<ERROR, "@", Line: 7, Col: 1>
+<ERROR, "$", Line: 7, Col: 3>
+<ERROR, "~", Line: 7, Col: 5>
+<ERROR, "`", Line: 7, Col: 7>
+<SINGLE_LINE_COMMENT, "## Invalid identifiers (must start with uppercase)\r", Line: 9, Col: 1>
+<ERROR, "count", Line: 10, Col: 1>
+<ERROR, "myVariable", Line: 11, Col: 1>
+<ERROR, "_hidden", Line: 12, Col: 1>
+<INTEGER_LITERAL, "2", Line: 13, Col: 1>
+<IDENTIFIER, "Count", Line: 13, Col: 2>
+<SINGLE_LINE_COMMENT, "## Identifier too long (exceeds 31 characters)\r", Line: 15, Col: 1>
+<ERROR, "Aabcdefghijklmnopqrstuvwxyz12345", Line: 16, Col: 1>
+<SINGLE_LINE_COMMENT, "## Malformed floating-point literals\r", Line: 18, Col: 1>
+<ERROR, "3.", Line: 19, Col: 1>
+<ERROR, "3.1234567", Line: 20, Col: 1>
+<SINGLE_LINE_COMMENT, "## Unterminated string literal\r", Line: 22, Col: 1>
+<ERROR, ""this string never ends\r", Line: 23, Col: 1>
+<SINGLE_LINE_COMMENT, "## Another valid line after error recovery\r", Line: 25, Col: 1>
+<KEYWORD, "declare", Line: 26, Col: 1>
+<IDENTIFIER, "Valid_var", Line: 26, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 26, Col: 19>
+<INTEGER_LITERAL, "42", Line: 26, Col: 21>
+<PUNCTUATOR, ";", Line: 26, Col: 23>
+<SINGLE_LINE_COMMENT, "## Unterminated character literal\r", Line: 28, Col: 1>
+<ERROR, "'A", Line: 29, Col: 1>
+<SINGLE_LINE_COMMENT, "## Valid token after char error recovery\r", Line: 31, Col: 1>
+<KEYWORD, "declare", Line: 32, Col: 1>
+<IDENTIFIER, "Another", Line: 32, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 32, Col: 17>
+<INTEGER_LITERAL, "10", Line: 32, Col: 19>
+<PUNCTUATOR, ";", Line: 32, Col: 21>
+<SINGLE_LINE_COMMENT, "## More invalid characters mixed with valid code\r", Line: 34, Col: 1>
+<KEYWORD, "output", Line: 35, Col: 1>
+<PUNCTUATOR, "(", Line: 35, Col: 7>
+<ERROR, "#", Line: 35, Col: 8>
+<PUNCTUATOR, ")", Line: 35, Col: 9>
+<PUNCTUATOR, ";", Line: 35, Col: 10>
+<KEYWORD, "finish", Line: 37, Col: 1>
+<EOF, "", Line: 38, Col: 1>
+
+========================================
+          SCANNER STATISTICS
+========================================
+Total tokens:      43
+Lines processed:   38
+Comments removed:  11
+
+Token counts by type:
+----------------------------------------
+  KEYWORD                   5
+  IDENTIFIER                3
+  INTEGER_LITERAL           3
+  ASSIGNMENT_OP             2
+  PUNCTUATOR                5
+  SINGLE_LINE_COMMENT       11
+  ERROR                     13
+  EOF                       1
+========================================
+
+========================================
+          SYMBOL TABLE
+========================================
+Name                      Type            First Occur.    Frequency
+----------------------------------------
+Count                     IDENTIFIER      13:2            1
+Valid_var                 IDENTIFIER      26:9            1
+Another                   IDENTIFIER      32:9            1
+========================================
+Total unique identifiers: 3
+
+========================================
+          LEXICAL ERRORS
+========================================
+[ERROR] Type: INVALID_CHARACTER, Line: 7, Col: 1, Lexeme: "@", Reason: Character '@' is not recognized in FlowLang
+[ERROR] Type: INVALID_CHARACTER, Line: 7, Col: 3, Lexeme: "$", Reason: Character '$' is not recognized in FlowLang
+[ERROR] Type: INVALID_CHARACTER, Line: 7, Col: 5, Lexeme: "~", Reason: Character '~' is not recognized in FlowLang
+[ERROR] Type: INVALID_CHARACTER, Line: 7, Col: 7, Lexeme: "`", Reason: Character '`' is not recognized in FlowLang
+[ERROR] Type: INVALID_IDENTIFIER, Line: 10, Col: 1, Lexeme: "count", Reason: Identifier must start with an uppercase letter (A-Z)
+[ERROR] Type: INVALID_IDENTIFIER, Line: 11, Col: 1, Lexeme: "myVariable", Reason: Identifier must start with an uppercase letter (A-Z)
+[ERROR] Type: INVALID_IDENTIFIER, Line: 12, Col: 1, Lexeme: "_hidden", Reason: Identifier must start with an uppercase letter (A-Z)
+[ERROR] Type: INVALID_IDENTIFIER, Line: 16, Col: 1, Lexeme: "Aabcdefghijklmnopqrstuvwxyz12345", Reason: Identifier exceeds maximum length of 31 characters (length: 32)
+[ERROR] Type: MALFORMED_LITERAL, Line: 19, Col: 1, Lexeme: "3.", Reason: Floating-point literal must have digits after decimal point
+[ERROR] Type: MALFORMED_LITERAL, Line: 20, Col: 1, Lexeme: "3.1234567", Reason: Floating-point literal has more than 6 decimal digits
+[ERROR] Type: UNTERMINATED_STRING, Line: 23, Col: 1, Lexeme: ""this string never ends
+", Reason: String literal is not properly closed
+[ERROR] Type: UNTERMINATED_CHAR, Line: 29, Col: 1, Lexeme: "'A", Reason: Character literal is not properly closed
+[ERROR] Type: INVALID_CHARACTER, Line: 35, Col: 8, Lexeme: "#", Reason: Character '#' is not recognized in FlowLang
+----------------------------------------
+Total errors: 13
+========================================
+---
+TEST 5 RESULTS
+---
+========================================
+  FlowLang Manual Lexical Analyzer
+========================================
+Scanning file: ../tests/test5.lang
+
+========================================
+          TOKEN LIST
+========================================
+<SINGLE_LINE_COMMENT, "## Test 5: Comments\r", Line: 1, Col: 1>
+<SINGLE_LINE_COMMENT, "## This file tests single-line and multi-line comment handling\r", Line: 2, Col: 1>
+<SINGLE_LINE_COMMENT, "## This is a single-line comment\r", Line: 4, Col: 1>
+<SINGLE_LINE_COMMENT, "## Another single-line comment\r", Line: 5, Col: 1>
+<KEYWORD, "start", Line: 7, Col: 1>
+<SINGLE_LINE_COMMENT, "## Comment before code\r", Line: 9, Col: 1>
+<KEYWORD, "declare", Line: 10, Col: 1>
+<IDENTIFIER, "X", Line: 10, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 10, Col: 11>
+<INTEGER_LITERAL, "10", Line: 10, Col: 13>
+<PUNCTUATOR, ";", Line: 10, Col: 15>
+<SINGLE_LINE_COMMENT, "## inline comment after code\r", Line: 10, Col: 17>
+<MULTI_LINE_COMMENT, "#* This is a\r\n   multi-line comment\r\n   spanning multiple lines *#", Line: 12, Col: 1>
+<KEYWORD, "declare", Line: 16, Col: 1>
+<IDENTIFIER, "Y", Line: 16, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 16, Col: 11>
+<INTEGER_LITERAL, "20", Line: 16, Col: 13>
+<PUNCTUATOR, ";", Line: 16, Col: 15>
+<MULTI_LINE_COMMENT, "#*\r\n   Another multi-line comment\r\n   with multiple lines\r\n   and some special characters: +-*/=<>!@#\r\n   and even * characters inside\r\n   ** two stars **\r\n*#", Line: 18, Col: 1>
+<SINGLE_LINE_COMMENT, "## Comment with special characters: + - * / = < > ! && ||\r", Line: 26, Col: 1>
+<KEYWORD, "declare", Line: 27, Col: 1>
+<IDENTIFIER, "Z", Line: 27, Col: 9>
+<ASSIGNMENT_OP, "=", Line: 27, Col: 11>
+<IDENTIFIER, "X", Line: 27, Col: 13>
+<ARITHMETIC_OP, "+", Line: 27, Col: 15>
+<IDENTIFIER, "Y", Line: 27, Col: 17>
+<PUNCTUATOR, ";", Line: 27, Col: 18>
+<MULTI_LINE_COMMENT, "#* single-line multi-line comment *#", Line: 29, Col: 1>
+<SINGLE_LINE_COMMENT, "## The following line has no comments\r", Line: 31, Col: 1>
+<KEYWORD, "output", Line: 32, Col: 1>
+<PUNCTUATOR, "(", Line: 32, Col: 7>
+<IDENTIFIER, "Z", Line: 32, Col: 8>
+<PUNCTUATOR, ")", Line: 32, Col: 9>
+<PUNCTUATOR, ";", Line: 32, Col: 10>
+<SINGLE_LINE_COMMENT, "## Empty single-line comment\r", Line: 34, Col: 1>
+<SINGLE_LINE_COMMENT, "##\r", Line: 35, Col: 1>
+<MULTI_LINE_COMMENT, "#* Multi-line comment with\r\n   code-like content:\r\n   declare A = 10;\r\n   loop (A > 0) {\r\n       A--;\r\n   }\r\n*#", Line: 37, Col: 1>
+<SINGLE_LINE_COMMENT, "## Last comment\r", Line: 45, Col: 1>
+<KEYWORD, "finish", Line: 46, Col: 1>
+<EOF, "", Line: 47, Col: 1>
+
+========================================
+          SCANNER STATISTICS
+========================================
+Total tokens:      40
+Lines processed:   47
+Comments removed:  15
+
+Token counts by type:
+----------------------------------------
+  KEYWORD                   6
+  IDENTIFIER                6
+  INTEGER_LITERAL           2
+  ARITHMETIC_OP             1
+  ASSIGNMENT_OP             3
+  PUNCTUATOR                6
+  SINGLE_LINE_COMMENT       11
+  MULTI_LINE_COMMENT        4
+  EOF                       1
+========================================
+
+========================================
+          SYMBOL TABLE
+========================================
+Name                      Type            First Occur.    Frequency
+----------------------------------------
+X                         IDENTIFIER      10:9            2
+Y                         IDENTIFIER      16:9            2
+Z                         IDENTIFIER      27:9            2
+========================================
+Total unique identifiers: 3
+
+========================================
+          LEXICAL ERRORS
+========================================
+No lexical errors found.
+========================================

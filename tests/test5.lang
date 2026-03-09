@@ -1,0 +1,46 @@
+## Test 5: Comments
+## This file tests single-line and multi-line comment handling
+
+## This is a single-line comment
+## Another single-line comment
+
+start
+
+## Comment before code
+declare X = 10; ## inline comment after code
+
+#* This is a
+   multi-line comment
+   spanning multiple lines *#
+
+declare Y = 20;
+
+#*
+   Another multi-line comment
+   with multiple lines
+   and some special characters: +-*/=<>!@#
+   and even * characters inside
+   ** two stars **
+*#
+
+## Comment with special characters: + - * / = < > ! && ||
+declare Z = X + Y;
+
+#* single-line multi-line comment *#
+
+## The following line has no comments
+output(Z);
+
+## Empty single-line comment
+##
+
+#* Multi-line comment with
+   code-like content:
+   declare A = 10;
+   loop (A > 0) {
+       A--;
+   }
+*#
+
+## Last comment
+finish

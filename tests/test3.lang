@@ -1,0 +1,36 @@
+## Test 3: String and Character Literals with Escape Sequences
+
+start
+
+## Simple strings
+declare Greeting = "Hello";
+declare Empty = "";
+
+## Strings with escape sequences
+declare Newline_str = "Line1\nLine2";
+declare Tab_str = "Col1\tCol2";
+declare Return_str = "Text\rOverwrite";
+declare Quote_str = "She said \"hello\"";
+declare Backslash_str = "C:\\Users\\file";
+
+## Multiple escapes in one string
+declare Complex_str = "Path:\tC:\\dir\\file\nDone\"!\"";
+
+## Character literals
+declare Ch1 = 'A';
+declare Ch2 = '9';
+declare Ch3 = ' ';
+
+## Characters with escape sequences
+declare Escaped_ch1 = '\'';
+declare Escaped_ch2 = '\\';
+declare Escaped_ch3 = '\n';
+declare Escaped_ch4 = '\t';
+declare Escaped_ch5 = '\r';
+
+## String used in output
+output("Result:\t");
+output("Value = \"42\"\n");
+output("Path: C:\\Users\\test\\file.txt");
+
+finish

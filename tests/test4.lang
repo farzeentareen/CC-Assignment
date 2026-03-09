@@ -1,0 +1,37 @@
+## Test 4: Lexical Errors
+## This file contains intentional errors to test error handling
+
+start
+
+## Invalid characters
+@ $ ~ `
+
+## Invalid identifiers (must start with uppercase)
+count
+myVariable
+_hidden
+2Count
+
+## Identifier too long (exceeds 31 characters)
+Aabcdefghijklmnopqrstuvwxyz12345
+
+## Malformed floating-point literals
+3.
+3.1234567
+
+## Unterminated string literal
+"this string never ends
+
+## Another valid line after error recovery
+declare Valid_var = 42;
+
+## Unterminated character literal
+'A
+
+## Valid token after char error recovery
+declare Another = 10;
+
+## More invalid characters mixed with valid code
+output(#);
+
+finish

@@ -1,0 +1,73 @@
+## Test 2: Complex Expressions
+## Tests operator precedence, nested expressions, and complex programs
+
+start
+
+## Variable declarations
+declare Result = 0;
+declare X = 10;
+declare Y = 20;
+declare Z = 5;
+
+## Complex arithmetic expressions
+Result = X + Y * Z - X / Y % Z;
+Result = (X + Y) * (Z - 2);
+Result = X ** 2 + Y ** 3;
+
+## Assignment operators in expressions
+X += Y * Z;
+Y -= X / 2;
+Z *= X + 1;
+Result /= Z;
+
+## Increment and decrement
+X++;
+Y--;
+X++;
+Y--;
+
+## Relational and logical expressions
+condition (X > Y && Z <= 10) {
+    output("Condition 1 met");
+}
+
+condition (X == Y || Z != 0) {
+    output("Condition 2 met");
+} else {
+    output("Condition 2 not met");
+}
+
+condition (!(X < 0) && (Y >= Z)) {
+    Result = X * Y + Z;
+}
+
+## Nested loops
+loop (X > 0) {
+    loop (Y > 0) {
+        condition (X == Y) {
+            break;
+        }
+        Y--;
+    }
+    X--;
+}
+
+## Function definition and call
+function Calculate(A, B, C) {
+    declare Temp = A * B;
+    Temp += C ** 2;
+    return Temp;
+}
+
+Result = Calculate(X, Y, Z);
+output(Result);
+
+## Complex boolean logic
+declare Flag1 = true;
+declare Flag2 = false;
+
+condition (Flag1 && !Flag2 || X > 0) {
+    output("Complex boolean passed");
+}
+
+finish

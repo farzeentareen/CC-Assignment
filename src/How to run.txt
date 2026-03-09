@@ -1,0 +1,3 @@
+cd src
+javac TokenType.java Token.java SymbolTable.java ErrorHandler.java ManualScanner.java Main.java
+java Main ../tests/test1.lang

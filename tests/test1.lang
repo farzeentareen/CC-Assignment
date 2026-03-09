@@ -1,0 +1,76 @@
+## Test 1: All Valid Tokens
+## This file tests every token type recognized by FlowLang
+
+## Keywords
+start
+finish
+loop
+condition
+declare
+output
+input
+function
+return
+break
+continue
+else
+
+## Identifiers
+Count
+Variable_name
+X
+Total_sum_2024
+My_var
+
+## Integer Literals
+42
+0
+100
+999
+
+## Floating-Point Literals
+3.14
+2.5
+0.123456
+1.5e10
+2.0E-3
+100.0e+5
+
+## Boolean Literals
+true
+false
+
+## String Literals
+"Hello, World!"
+"FlowLang is great"
+""
+
+## Character Literals
+'A'
+'z'
+'0'
+
+## Arithmetic Operators
++ - * / % **
+
+## Relational Operators
+== != <= >= < >
+
+## Logical Operators
+&& || !
+
+## Assignment Operators
+= += -= *= /=
+
+## Increment/Decrement Operators
+++ --
+
+## Punctuators
+( ) { } [ ] , ; :
+
+## Sample Expression
+declare Count = 10;
+loop (Count > 0) {
+    output("Value: ");
+    Count -= 1;
+}
