@@ -181,7 +181,7 @@ java JFlexScannerDriver ../tests/test1.lang
 5. Click Run
 
 ### VS Code Setup
-1. Open the `23i0721-23i0036-A` folder in VS Code
+1. Open the `23i0721-23i0036-G-D` folder in VS Code
 2. Install the "Extension Pack for Java" if not already installed
 3. Open a terminal (`Ctrl+`` `)
 4. Follow the command-line compilation steps above
