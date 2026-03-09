@@ -172,16 +172,3 @@ javac TokenType.java Token.java SymbolTable.java ErrorHandler.java Yylex.java JF
 # Step 3: Run
 java JFlexScannerDriver ../tests/test1.lang
 ```
-
-### Eclipse IDE Setup
-1. Create a new Java Project
-2. Copy all `.java` files from `src/` into the `src` folder of the project
-3. Right-click `Main.java` → Run As → Run Configurations
-4. Set Program Arguments to the path of a test file (e.g., `tests/test1.lang`)
-5. Click Run
-
-### VS Code Setup
-1. Open the `23i0721-23i0036-G-D` folder in VS Code
-2. Install the "Extension Pack for Java" if not already installed
-3. Open a terminal (`Ctrl+`` `)
-4. Follow the command-line compilation steps above
